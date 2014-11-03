@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>地铁客开源轻博客系统 后台设置v1.7</title>
+<script>var urlpath = '{$url}'</script> 
+<script type="text/javascript" src="{$url}/tpl/js/jquery.min.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialog.js?skin=mac"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialogTools.js"></script>
+<script type="text/javascript" src="{$url}/tpl/admin/style/global.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/global.js"></script>
+{if $editor == yes}
+    <script type="text/javascript" src="{$url}/tpl/js/editor/xheditor.js"></script>
+    <script type="text/javascript" src="{$url}/tpl/js/add.js"></script>
+	<script type="text/javascript" src="{$url}/tpl/js/add2.js"></script>
+{/if}
+<link href="{$url}/tpl/image/css/reset.css" rel="stylesheet" type="text/css">
+<link href="{$url}/tpl/admin/style/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" media="screen" href="{$url}/tpl/image/css/admin.css" class="cssfx"/>
+</head>
+<body>
+<div id="wrap">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="137"><img src="{$url}/tpl/admin/style/logo.png" width="173" height="87" alt="ditieker os" /></td>
+      <td class="menuline"><div class="menu">
+          <ul>
+            <li><a href="{spUrl c=admin a=index}" {$curr_index}>首页</a></li>
+            <li><a href="{spUrl c=admin a=system}" {$curr_system}>系统管理</a> </li>
+			<!--<li><a href="{spUrl c=admin a=site}" {$curr_site}>站点图片</a> </li>-->
+            <li><a href="{spUrl c=admin a=blog}" {$curr_blog}>内容管理</a> </li>
+            <li><a href="{spUrl c=admin a=user}" {$curr_user}>用户管理</a></li>
+            <li><a href="{spUrl c=admin a=theme}" {$curr_theme}>主题管理</a></li>
+            <li><a href="{spUrl c=admin a=database}" {$curr_database}>数据管理</a></li>
+			<li><a href="{spUrl c=admin a=allpm}" {$curr_allpm}>私信管理</a></li>
+            <li><a href="{spUrl c=main}">返回首页</a></li>
+          </ul>
+        </div></td>
+    </tr>
+  </table>
+ 
+   {if isset($get.ac)} <script>showprccmsg('{$get.ac}')</script> {/if}

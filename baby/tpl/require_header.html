@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{if $titlepre}{$titlepre} -{/if} {$title} {$dtk.site_title} - {$dtk.site_titlepre}</title>
+<meta charset="utf-8" />
+<meta name="author" content="{$dtk.author}" />
+<meta name="description" content="{$dtk.site_desc}" />
+<meta name="keywords" content="{if $titlepre}{$titlepre},{/if}{$dtk.site_keyword}" />
+<link rel="shortcut icon" href="{$url}/tpl/image/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" media="screen" href="{$url}/tpl/image/css/html5.css" class="cssfx"/>
+{literal}
+<!--google analasyse-->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28356195-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+{/literal}
+{include file="require_js.html"}
+</head>
+<body>
+{if islogin()}
+<div id="PopElementContainer"></div>
+<div id="PopMenuContainer">
+	<div id="pop-blog-list-holder" class="pop-menu-list-holder" style="left: 940px; " >
+		<div id="pop-blog-list-inner" class="pop-menu-list-inner">
+			<div id="pop-blog-list-triangle" class="pop-menu-list-triangle"></div>
+				<ul id="pop-blog-list" class="pop-menu-list">
+					{foreach from=$MyBoards item=d key="j"}
+					<li class="" id="nav-blog-{$d.boid}">
+						<a href="{spUrl c=main a=magazine boid=$MyBoards[$j]['boid']}">
+							<span class="pop-menu-extra blog-move-icon"></span>
+							<span class="nav-blog-name">{$d.boardname}</span>
+						</a>
+					</li>
+					{/foreach}
+			<li class="sub">
+			<a href="javascript:void(0)" onclick="new_magazine()" title="再创建一个博客">
+			<span class="aside-icon"></span>
+			+再创建一个博客
+			</a>
+			</li>
+			</ul>
+		</div>
+</div></div>
+{/if}
+<!-- ShareJs -->
+{$dtk.share_js}
+<div id="dd_header_holder">
+<div id="dd_header">
+	<div id="nav_holder">
+		<div id="logo"><a title="{$title}" href="{spUrl c=main a=index}">{$title}</a></div>
+	</div>
+	
+	<ul id="nav">
+		<li {if $CurrentModule=='open'}class="current"{/if}><a class="nav_arrow" href="http://www.ditieker.com/open">开源论坛</a>{if $CurrentModule=='open'}<div class="nav_arrow"></div>{/if}</li>
+		<li {if $CurrentModule=='waterfall'}class="current"{/if}><a class="nav_arrow" href="{spUrl c=main a=waterfall}">瀑布墙</a>{if $CurrentModule=='waterfall'}<div class="nav_arrow"></div>{/if}</li>
+	{if islogin()}
+		<li {if $CurrentModule=='now'}class="current"{/if}><a class="nav_arrow" href="{spUrl c=main a=now}">此刻</a>{if $CurrentModule=='now'}<div class="nav_arrow"></div>{/if}</li>
+		<li {if $CurrentModule=='index'}class="current"{/if}><a class="nav_arrow" href="{spUrl c=main a=index}">首页</a>{if $CurrentModule=='index'}<div class="nav_arrow"></div>{/if}</li>
+	{else}
+		<li {if $CurrentModule=='now'}class="current"{/if}><a class="nav_arrow" href="{spUrl c=main a=now}">首页</a>{if $CurrentModule=='now'}<div class="nav_arrow"></div>{/if}</li>
+	{/if}
+	</ul>
+
+	{if islogin()}
+		<ul id="nav-blog-list">
+		{if $MyBoards}
+			{foreach from=$MyBoards item=d key="j"}
+				{if $d.top}					
+					<li id="nav-blog-{$d.boid}" {if $CurrentModule==$d.boid}class="current"{/if}><a class="nav_arrow" href="{spUrl c=magazine a=all}">{$d.boardname}</a>{if $CurrentModule==$d.boid}<div class="nav_arrow"></div>{/if}</li>
+				{else}
+					{if $j>1}  
+					{break}
+					{/if}
+					<li id="nav-blog-{$d.boid}" {if $CurrentModule==$d.boid}class="current"{/if}><a class="nav_arrow" href="{spUrl c=main a=magazine boid=$MyBoards[$j]['boid']}">{$d.boardname}</a>{if $CurrentModule==$d.boid}<div class="nav_arrow"></div>{/if}</li>
+				{/if}
+			{/foreach}
+		{else}
+			<li id="nav-blog-ditieker.com"{if $CurrentModule==$d.boid}class="current"{/if}><a class="nav_arrow" href="javascript:void(0)" onclick="new_magazine()" title="再创建一个博客">还没有杂志？新建一个吧</a></li>
+		{/if}
+		</ul>
+		{if $j>=0}
+		<div id="nav-blog-action">
+			<a id="nav-more-blog" class="nav-more-blog" style="" onclick="emotion()">更多</a>
+			<a id="nav-new-blog" class="nav-new-blog" href="javascript:void(0)" onclick="new_magazine()" title="再创建一个博客">再创建一本杂志</a>
+			<span id="nav-more-blog-notice" class="header-pop-notice large-pop-notice blog-pop-notice" style="display:none;">new</span>
+		</div>
+		{/if}
+	{/if}
+	<div id="J_HeaderMiscAction" class="misc-action">
+		<ul class="action-list">
+			{if islogin()}
+			<li class="action-item">
+				<a class="action-link discovery" href="{spUrl c=main a=discovery}" title="发现"></a>
+			</li>
+			<li class="action-item">
+				<a class="action-link inbox" href="{spUrl c=user a=pm}" title="私信"></a>
+			</li>
+			<li class="action-item">
+				<a class="action-link settings" href="{spUrl c=user a=setting}" title="设置"></a>
+			</li>
+			<li class="action-item">
+				{if $smarty.session.admin ==1}<a class="text" href="{spUrl c=admin}" title="后台">后台</a>{/if}
+			</li>
+			<li class="action-item">
+				<a class="action-link logout" href="{spUrl c=main a=logout}" title="退出"></a>
+			</li>
+			{else}
+				<li class="action-item"><a class="text" href="{spUrl c=main a=login}" title="登陆">登陆</a></li>
+				<li class="action-item"><a class="text" href="{spUrl c=main a=reg}" title="注册">注册</a></li>
+			{/if}
+		</ul>
+	</div>
+	<div id="tool">
+    </div>
+</div>
+	<div id="header_bg">
+	
+	<div class="clear"></div>
+

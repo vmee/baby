@@ -1,0 +1,27 @@
+{include file="require_header.html" now=yes gallery=yes}
+
+	<div id="article">
+	{if islogin()}
+		{include file="require_post.html"}
+	{else}
+		<div class="cartoon">亲！注册会员享受更多特权，发布、制作杂志、移动客户端一个</p>都不少！
+			&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <a href="{spUrl c=main a=login}" title="登陆">登录</a>
+			（还米有账号？<a href="{spUrl c=main a=reg}" title="注册">注册</a>）
+		</div>
+	{/if}
+	<div id="feedArea">
+	{include file="require_feeds.html" data=$blogs limits=4}
+	</div>
+	<!--<footer class="nav">{$pager}</footer> -->
+	<div id="feedAjaxTool" page="2" max="10" area="feedArea" query="{spUrl c=main a=now ajaxload=true}" class="feedajax">
+	<a href="javascript:void(0)" onclick="continueShow('feedAjaxTool')">查看更多...</a>
+	</div>
+	<script>feedToolBar('feedAjaxTool');</script>
+
+	</div>
+
+<div id="aside">
+   {include file="require_sider.html"}
+</div>
+
+{include file="require_footer.html"}

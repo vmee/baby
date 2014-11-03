@@ -1,0 +1,18 @@
+<div id="postblog">
+        <div class="img"><img src="{avatar uid=$smarty.session.uid size=middle}" alt="{$smarty.session.username}" class="face"/></div>
+        <div class="pop">
+	<li><a href="{spUrl c=add_s a=state}" class="state">状态</a></li> <li class="ln"></li>
+    {if $yb.addtext_switch ==1} <li><a href="{spUrl c=add_s a=text}" class="text">文字</a></li> <li class="ln"></li>{/if}
+    {if $yb.addmusic_switch ==1} <li><a href="{spUrl c=add_s a=music}" class="music">音乐</a></li><li class="ln"></li>{/if}
+    {if $yb.addimg_switch ==1} <li><a href="{spUrl c=add_s a=image}" class="photo">图片</a></li><li class="ln"></li>{/if}
+    {if $yb.addvideo_switch ==1}<li><a  href="{spUrl c=add_s a=video}" class="video">视频</a></li>{/if}
+	{if $yb.addlink_switch ==1}<li><a  href="{spUrl c=add_s a=link}" class="link">链接</a></li>{/if}
+	仓库总数：{$snum}
+    <!--<li><a href="#" class="link">其他</a></li>-->
+			<form action="{spUrl c=add_s a=post_state}" id="form1" method="post">
+			<input type="hidden" value="6" name="blog-types">
+			<textarea class="state" name="textarea"></textarea>
+			<div class="filedBtn"><input class="subBtn" type="submit" value="&nbsp;"></div>
+		</form>
+      </div>
+    </div>

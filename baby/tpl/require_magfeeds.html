@@ -1,0 +1,85 @@
+﻿{foreach from=$data item=d}
+<div class="box" id="blog_{$d.boardinfo.id}">
+     <div class="top">
+     	<a href="{goUserHome domain=$d.blog.domain uid=$d.blog.uid}" title="{$d.blog.user.username}" target="_blank"> 
+     	<div class="face"><img src="{avatar uid=$d.blog.uid size=middle}" alt="{$d.blog.user.username}"/></div></a>
+     </div>
+     <div class="header">
+      {if $d.boardinfo.title} <h1><a href="{goUserBlog bid=$d.blog.bid}" target="_blank">{$d.boardinfo.title}</a></h1> {/if}
+	  <span id="pubtime">{dtktime time=$d.blog.time}</span>
+     </div>
+     
+     <div id="feedText_{$d.blog.bid}" class="content">
+           {feeds item=$d.blog.body type=$d.blog.type limit=$limits bid=$d.blog.bid}
+     </div>
+     
+     <div class="footer">
+	  <div class="tag"><div class="lable">标签:</div>{tag tag=$d.blog.tag c=tag}</div>
+	  <div class="mark">
+			<div id="mark0" onmouseover="this.style.backgroundPosition='0 0'" onmouseout="this.style.backgroundPosition='-67px 0'" onfocus="this.blur()" onClick="sEval({$d.blog.bid},1)">
+				<span id="barnum1"><span id="{$d.blog.bid}">{$d.blog.good_num}</span></span>
+			</div>
+			<div id="mark1" onmouseover="this.style.backgroundPosition='-202px 0'" onmouseout="this.style.backgroundPosition='-135px 0'" onfocus="this.blur()" onclick="sEval({$d.blog.bid},2)">
+				<span id="barnum2"><span id="s{$d.blog.bid}">{$d.blog.bad_num}</span></span>
+			</div>
+		</div>
+      <div class="menu">
+      {if $d.blog.title == ''}<a href="{goUserBlog bid=$d.blog.bid}">全文</a>{/if}
+      
+       
+           <a href="javascript:void(0)" onclick="indexPostTab('feeds','{$d.blog.bid}','{spUrl c=blog a=getFeeds}')" id="hid_btn_{$d.blog.bid}">动态<em>{if {$d.blog.feedcount} != 0}({$d.blog.feedcount}){/if}</em></a>
+               {if islogin()}
+               	
+                	<a href="javascript:void(0)" onclick="indexPostTab('comment','{$d.blog.bid}','{spUrl c=blog a=getReplay}')" id="comment_btn_{$d.blog.bid}">
+      				评论<em>{if {$d.blog.replaycount} != 0}({$d.blog.replaycount}){/if}</em></a>
+       
+                	{if $d.boardinfo.uid != $smarty.session.uid}
+                       {if $d.blog.followid != ''} <a href="javascript:void(0)" onclick="follows('{$d.blog.uid}','{spUrl c=blog a=follows}')">已关注</a> {else}
+                       <a href="javascript:void(0)" onclick="follows('{$d.blog.uid}','{spUrl c=blog a=follows}')">关注</a>
+                       {/if}
+                    {/if}
+                   
+                    <a href="javascript:void(0)" onclick="collect({$d.blog.bid},{$d.blog.uid})">收集</a> 
+					{if $d.boardinfo.uid = $smarty.session.uid}
+					<a href="javascript:void(0)" onclick="edit_magazine({$d.boardinfo.id},{$url})">编辑</a>
+					
+					{/if}
+                
+                   {if $d.blog.uid == $smarty.session.uid || $smarty.session.admin == 1}
+                    <a href="{spUrl c=add a=edit id=$d.blog.bid}"><img src="{$url}/tpl/image/edit.gif" title="编辑{if $d.blog.open == 0}草稿{/if}" /></a> 
+                    <span class="delrep"><a href="javascript:void(0)" onclick="delcollects('{$d.boardinfo.id}','{$url}/index.php?c=magazine&a=del&id={$d.boardinfo.id}')" title="删除">&nbsp;&nbsp;&nbsp;</a></span>
+					
+                   {/if}
+               {/if}
+   
+      </div>
+        <div class="clear"></div>
+     </div>
+
+ 
+                    <div style="display:none" id="comment_{$d.blog.bid}">
+                      <div class="comment">
+                      {if islogin()}
+                          <textarea id="replyInput_{$d.blog.bid}"></textarea>
+                          <input type="hidden" id="replyTo_{$d.blog.bid}" />
+                          <div class="submit">
+                           <em class="green" id="replyInput_lengthinf_{$d.blog.bid}"></em>
+                           <input type="button" value="提交评论" onclick="sendReplay('{$d.blog.bid}','{spUrl c=blog a=replay}')" class="btn" />
+                       </div>
+                          {/if}
+                        <ul class="commentList" id="commentList_{$d.blog.bid}"></ul>
+                      </div>
+                    </div>
+                    
+                     <div id="feeds_{$d.blog.bid}"  style="display:none">
+                      <div class="comment">
+
+
+                        <ul class="feedList" id="feedList_{$d.blog.bid}">
+                        </ul>
+                      </div>
+                    </div>
+     
+   
+    </div>
+{/foreach}

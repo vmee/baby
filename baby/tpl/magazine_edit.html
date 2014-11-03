@@ -1,0 +1,66 @@
+﻿<!doctype html>
+<html lang="zh-cn">
+<head>
+    <title>{if $titlepre}{$titlepre} -{/if} {$title} {$dtk.site_title} - {$dtk.site_titlepre}</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{$url}/tpl/image/css/collect.css"/>
+	
+	{include file="require_js.html"}
+	</head>
+
+<body>
+	<h2 id="title">修改收集标题</h2>
+	<form id="create-tblog-form" action="{$url}/index.php?c=magazine&a=edit_do" method="post">
+		<div id="input_container">
+			<div class="newmag_left" ><label for="blogName">标题:</label></div>
+			<input class="newmag_input" type="text" id="MagName" name="MagName" value="{$boardinfo.title}" >
+			<input type="hidden" id="id" name="id" value="{$boardinfo.id}">
+		</div>
+	</form>
+	{literal}
+	<script>
+		(function () {
+		var parent = art.dialog.parent,				// 父页面window对象
+			api = art.dialog.open.api,	// 			art.dialog.open扩展方法
+			$ = function (id) {return document.getElementById(id)},
+			form = $('create-tblog-form'),
+			magname = $('MagName');
+
+		if (!api) return;
+
+		parent.document.title = 'iframe中的javascirpt到此一游';
+
+		// 操作对话框
+		api.title('系统登录')
+			// 自定义按钮
+			.button(
+				{
+					name: '登录',
+					callback: function () {
+						if (check(MagName) form.submit();
+						return false;
+					},
+					focus: true
+				},
+				{
+					name: '取消'
+				}
+			);
+
+		// 表单验证
+		var check = function (input) {
+			if (input.value === '') {
+				inputError(input);
+				input.focus();
+				return false;
+			} else {
+				return true;
+			};
+		};
+
+		window.onload = function () {setTimeout(function () {username.focus()}, 240);};
+		})();
+		</script>
+		{/literal}
+	</div>
+</body>

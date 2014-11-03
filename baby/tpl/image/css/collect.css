@@ -1,0 +1,50 @@
+@charset "utf-8";
+/*地铁客开源轻博客地铁客开源轻博客颜色*/
+body {width:500px; padding:10px;color: #222222; font-family:'Microsoft Yahei','Arail';font-size: 16px;}
+#title{background-color:#0e395b;height:30px;font-size:18px;color:#f6f6f6;padding:3px 0 0 20px;margin-top:-15px;border-top-right-radius: 4px 4px;border-top-left-radius: 4px 4px;}
+#main{}
+#left{float:left;max-width: 200px;padding:5px;}
+#left .preview {
+height: 200px;
+overflow: hidden;
+padding-bottom: 0px;
+width: 200px;}
+#left .preview .img img{
+vertical-align: middle;
+max-width: 200px;
+height: expression_r(this.width >200px ? (200px*(this.height/this.width)): true);
+width: expression_r(this.width >200px ? 200px: true);}
+/*#left .img img{
+overflow : hidden;
+width: 200px;
+height:200px;}*/
+#right{float:right;width:280px;padding:5px;}
+#right#first{width:280px}
+#right .select {
+background: url(../search_icon3.png) -1px -133px;
+cursor: pointer;
+display: inline-block;
+float: none;
+height: 32px;
+margin-top: 6px;
+position: relative;
+width: 205px;
+z-index: 11;
+}
+#right .input{
+display: inline-block;
+float: none;
+height: 155px;
+margin-top: 6px;
+position: relative;
+width: 280px;
+z-index: 11;}
+#right .cancle{width:100px;height:40px;}
+#right .button{width:100px;height:40px;}
+
+#input_container{margin:5px;height:30px;padding-top:10px;}
+.newmag_left{float:left;width:20%;height:30px;}
+.newmag_input{float:left;width:70%;height:30px;font-size:20px;}
+.board_name{float:left;width:20%;height:30px;}
+.board_name_input{float:left;width:70%;height:30px;font-size:20px;}
+

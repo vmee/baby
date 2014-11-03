@@ -1,0 +1,36 @@
+﻿{include file="require_header.html" titlepre="$date"  gallery=yes}
+
+
+
+<div id="article">
+{if is_array($date)}
+<h1 style="margin:15px 0px"><a href="{spUrl c=blog a=date date=$time}" class="current">{$time}</a>
+
+</h1>
+{/if}
+<div id="feedArea">
+{include file="require_feeds.html" data=$date limits=4}
+</div>
+
+{if !is_array($date)}
+ <div class="box">
+    	 <div class="content"> 这天和冷清，没有用户发布笑话呵，快加入我们一块攒杂志吧~ </div>
+    </div>
+{/if}
+
+
+{if $date}
+<div class="nav">{$pager}</div>
+{/if}
+
+
+</div>
+
+
+
+
+<div id="aside">
+   {include file="require_sider.html" in_tagindex=true}
+</div>
+
+{include file="require_footer.html"}

@@ -1,0 +1,116 @@
+<!--右侧菜单组件-->
+{if $smarty.session.uid !=''}
+
+  {if !$in_tagindex}
+
+  <div id="search"><input type="text" value="搜索标签,发现兴趣" class="ipt"><input type="button" class="btn" value="" onClick="searchTag()"></div>
+  
+  <ul class="sidemenu">
+	<li><span class="myfollows"></span><a href="{spUrl c=main}">我关注{$user.flow}个博客</a></li>
+	<li><span class="setfollows"></span><a href="{spUrl c=user a=myfollow}">管理我的关注</a></li>
+	<li><span class="discovery"></span><a href="{spUrl c=main a=discovery}">发现更多新博客</a></li>
+   </ul>
+
+    <ul class="sidemenu">
+        <li><span class="mybestlike"></span><a href="{spUrl c=user a=mylikes}">我的最爱 {$user.likenum}</a></li>
+        <li><span class="mypublics"></span><a href="{spUrl c=user a=mypost}">我发布的 {$user.num}</a></li>
+        <li><span class="myreplays"></span><a href="{spUrl c=user a=myreplay}">我回复的</a></li>
+    </ul>
+  {/if}
+
+
+    {if $in_tagindex}
+
+         {if $favatag}
+             <ul class="sidemenu">
+             <li class="lable"><span class="space"></span><a href="{spUrl c=main a=index}" title="返回首页">返回首页</a></li>
+             {foreach from=$favatag item=d}
+             	{if $d.tag.title == $tagname}
+                 <li><span class="itemtag"></span><a href="{spUrl c=blog a=tag tag=$d.tag.title}" title="最近更新{dtktime time=$d.tag.updates}">{$d.tag.title}</a>{if $d.tag.num}({$d.tag.num}){/if}</li>
+                {else}
+                <li><span class="itemtag"></span><a href="{spUrl c=blog a=tag tag=$d.tag.title}" title="最近更新{dtktime time=$d.tag.updates}">{$d.tag.title}</a>{if $d.tag.num}({$d.tag.num}){/if}</li>
+                {/if}
+            {/foreach}
+            {else}
+              <li><span class="space"></span><a href="{spUrl c=main a=recommend}">没有关注标签,发现一下吧</a></li>
+         {/if}
+		  </ul>
+    {else}
+	
+    	{if $favatag}
+             <ul class="sidemenu">
+             {foreach from=$favatag item=d}
+              <li><span class="itemtag"></span><a href="{spUrl c=blog a=tag tag=$d.tag.title}" title="最近更新{dtktime time=$d.tag.updates}">{$d.tag.title}</a> {if $d.tag.num}({$d.tag.num}){/if}</li>
+            {/foreach}
+             <li><span class="space"></span><a href="{spUrl c=blog a=tag}">查看更多标签</a></li>
+            </ul>
+        {else}
+            <ul class="sidemenu">
+              <li><span class="space"></span><a href="{spUrl c=main a=recommend}">没有关注标签,发现一下吧</a></li>
+              <div class="clear"></div>
+			  <script type="text/javascript">//<![CDATA[
+			  Calendar.setup({
+				inputField : "f_date1",
+				trigger    : "f_btn1",
+				onSelect   : function() { this.hide() },
+				showTime   : 12,
+				dateFormat : "%Y-%m-%d %I:%M %p"
+			  });
+			//]]></script>
+            </ul>
+        {/if}
+    {/if}
+
+ {/if}
+	
+	<h3>热门标签</h3>
+	<div class="tagnew">
+		<ul>
+		{foreach from=$htag item=d}
+			<li><a href="{spUrl c=blog a=tag tag=$d.title}" target="_blank" >{$d.title}</a></li>
+		{/foreach}
+		</ul>
+	</div>
+	<!--放置热门杂志-->
+	<div class="siderhr"></div>
+	<ul class="sidemenu">
+		<li class="lable"><span class="space"></span>热门杂志</li>
+			{foreach from=$HotBoards item=d key="j"}
+			<li><span class="space"></span><a href="{spUrl c=main a=magazine boid=$HotBoards[$j]['boid']}" target="_blank">{$j+1}.{$d.boardname}&nbsp&nbsp({$HotBoards[$j]['coins']}热度)</a></li>
+			{/foreach}
+			<li ><span class="space"></span><a href="{spUrl c=magazine a=all}" target="_blank">更多</a></li>
+	</ul>
+	
+	
+	<ul class="sidemenu">
+		<li class="lable"><span class="space"></span>手机上 ditieker.com</li>
+		<li class="vcode"><img src="{$url}/tpl/image/2code.gif"></li>
+		<li class="contents"><span class="space"></span>↑手机拍二维码，或直接用手机进入ditieker.com，存书签，随时随地地铁客～</li>
+	</ul>
+	<h3>订阅是个好习惯</h3>
+	<!-- Feedsky FEED发布代码开始 -->
+	<!-- FEED自动发现标记开始 -->
+	<link title="RSS 2.0" type="application/rss+xml" href="http://feed.feedsky.com/b469" rel="alternate" />
+	<!-- FEED自动发现标记结束 -->
+	<a href="http://feed.feedsky.com/b469" target="_blank"><img border="0" src="http://img.feedsky.com/images/icon_sub_c1s17.gif" alt="feedsky" vspace="2"  style="margin-bottom:3px" ></a><br />
+	<a href="http://www.zhuaxia.com/add_channel.php?url=http://feed.feedsky.com/b469" target="_blank"><img border="0" src="http://img.feedsky.com/images/icon_subshot01_zhuaxia.gif" alt="&#25235;&#34430;" vspace="2" style="margin-bottom:3px" ></a><br />
+	<a href="http://www.rojo.com/add-subscription?resource=http://feed.feedsky.com/b469" target="_blank"><img border="0" src="http://img.feedsky.com/images/icon_subshot01_rojo.gif" alt="Rojo" vspace="2" style="margin-bottom:3px" ></a><br />
+	<a href="http://fusion.google.com/add?feedurl=http://feed.feedsky.com/b469" target="_blank"><img border="0" src="http://img.feedsky.com/images/icon_subshot01_google.gif" alt="google reader" vspace="2" style="margin-bottom:3px" ></a><br />
+	<a href="http://add.my.yahoo.com/rss?url=http://feed.feedsky.com/b469" target="_blank"><img border="0" src="http://img.feedsky.com/images/icon_subshot01_yahoo.gif" alt="my yahoo" vspace="2" style="margin-bottom:3px" ></a><br />
+	<a href="http://www.xianguo.com/subscribe.php?url=http://feed.feedsky.com/b469" target="_blank"><img border="0" src="http://img.feedsky.com/images/icon_subshot01_xianguo.gif" alt="&#40092;&#26524;" vspace="2" style="margin-bottom:3px" ></a><br />
+	<a href="http://inezha.com/add?url=http://feed.feedsky.com/b469" target="_blank"><img border="0" src="http://img.feedsky.com/images/icon_subshot01_nazha.gif" alt="&#21738;&#21522;" vspace="2" style="margin-bottom:3px" ></a><br />
+	<!-- Feedsky FEED发布代码结束 -->
+	<div class="siderhr"></div>
+	<h3>配套客户端下载</h3>
+	<a href="http://mobile.91.com/Soft/Android/com.ditieker.dtk-1.6.html"><img src="{$url}/tpl/image/pboard.jpg" alt="猫扑狂搞笑下载地址"/></a>
+	<!-- 放置新浪微博状态 -->
+	<!--<iframe width="100%" height="24" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=100%&height=24&uid=1570967302&style=3&btn=red&dpc=1"></iframe>-->
+	<div class="siderhr"></div>
+	<h3>官方微博动态</h3>
+	<iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=10&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1570967302&verifier=b3700b1c&dpc=1"></iframe>
+
+
+
+
+
+

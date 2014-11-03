@@ -1,0 +1,132 @@
+<script>
+	<!--
+	var urlpath = '{$url}';
+	-->
+</script>
+{if $index == 'yes' || $now == 'yes'}
+<script type="text/javascript" src="{$url}/tpl/js/jquery.min.js"/></script>
+<script type="text/javascript" src="{$url}/tpl/js/global.js"></script>
+<script type="text/javascript" src="{$url}/tpl/swf/player.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialog.js?skin=mac"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialogTools.js"></script>
+{/if}
+{if $waterfall == 'yes'}
+<script type="text/javascript" src="{$url}/tpl/js/jquery.min.js"/></script>
+<script type="text/javascript" src="{$url}/tpl/js/digg.js"/></script>
+<script type="text/javascript" src="{$url}/tpl/js/modernizr.js"></script>
+<script type='text/javascript' src="{$url}/tpl/js/jquery.masonry.min.js"></script>
+<script type='text/javascript' src="{$url}/tpl/js/jquery.infinitescroll.min.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/digg.js"/></script>
+<script type="text/javascript" src="{$url}/tpl/js/cssfx.min.js"></script>
+{/if}
+{if $login == 'yes'}
+<script type="text/javascript" src="{$url}/tpl/js/jquery.min.js"/></script>
+{/if}
+{if $gallery == 'yes'}
+<script type="text/javascript" src="{$url}/tpl/js/gallery.min.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/gallery.global.js"></script>
+<link type="text/css" href="{$url}/tpl/image/css/gallery.show.css" rel="stylesheet" >
+{/if}
+{if $discovery == 'yes'}
+<script type="text/javascript" src="{$url}/tpl/js/jquery.min.js"/></script>
+<link rel="stylesheet" type="text/css" media="screen" href="{$url}/tpl/image/css/reset.css" class="cssfx"/>
+<script type='text/javascript' src="{$url}/tpl/js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/global.js"></script>
+{/if}
+
+{if $omg == 'yes'}
+<script type="text/javascript" src="{$url}/tpl/js/jquery.min.js"/></script>
+<script type="text/javascript" src="{$url}/tpl/js/jquery-ui.js"/></script>
+<script type="text/javascript" src="{$url}/tpl/js/modernizr.js"></script>
+<script type='text/javascript' src="{$url}/tpl/js/jquery.masonry.min.js"></script>
+<script type='text/javascript' src="{$url}/tpl/js/jquery.infinitescroll.min.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialog.js?skin=mac"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialogTools.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/cssfx.min.js"></script>
+{/if}
+{if $custom == yes}
+<script type="text/javascript" src="{$url}/tpl/js/jquery.min.js"/></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialog.js?skin=mac"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialogTools.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/custom.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/colorselect/jquery.modcoder.excolor.js"></script>
+{/if}
+{if $loadedit == yes}
+<script type="text/javascript" src="{$url}/tpl/js/jquery.min.js"/></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialog.js?skin=mac"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialogTools.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/global.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/editor/xheditor.js"></script>
+{/if}
+{if $layout == yes}
+<script src="{$url}/tpl/js/modernizr-transitions.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/masonry.min.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/kissy-min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="{$url}/tpl/image/css/recommend.css" />
+{literal}
+	<script>
+	$(document).ready(function(){
+		$('.welcome').masonry({ itemSelector: '.box' 	});
+		$('.welcome .box').hover(
+					function(){
+					$(this).find('.boxhover').fadeIn();
+					},function(){
+					$(this).find('.boxhover').fadeOut();
+	});
+	});
+	</script>
+{/literal}
+{/if}
+{if $addcss == yes}
+<script type="text/javascript" src="{$url}/tpl/js/jquery.min.js"/></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialog.js?skin=mac"></script>
+<script type="text/javascript" src="{$url}/tpl/js/dialog/dialogTools.js"></script>
+{/if}
+{if $swfupload == yes}
+<script type="text/javascript" src="{$url}/tpl/js/swfupload.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/multiupload.js"></script>
+{/if}
+{if $editor == yes}
+<script type="text/javascript" src="{$url}/tpl/js/editor/xheditor.js"></script>
+<script type="text/javascript" src="{$url}/tpl/js/global.js"></script>
+<link   type="text/css" rel="stylesheet"  media="screen" href="{$url}/tpl/image/css/add.css" />
+{/if}
+{if $index == yes || header == yes}
+<script type="text/javascript">
+	var w = 0;
+	var h = 0;
+	var mout;
+	var isShow = 0;
+	function emotion(){
+		var oMenu = document.getElementById("pop-blog-list-holder");
+		if(w <= 50){
+			oMenu.style.display = "block";
+			fnLarge();
+		}
+	}
+	function fnLarge(){
+		var oMenu = document.getElementById("pop-blog-list-holder");
+		if(w < 250){
+			w += 50;
+			h += 25;
+			oMenu.style.width = w+"px";
+			oMenu.style.height = h+"px";
+			window.setTimeout("fnLarge()",10);
+		}else{
+			isShow = 1;
+		}
+	}
+	document.onclick = function fnSmall(){
+		var oMenu = document.getElementById("pop-blog-list-holder");
+		if(isShow=='1'){
+			w = 0;
+			h = 0;
+			oMenu.style.width = w+"px";
+			oMenu.style.height = h+"px";
+			window.setTimeout("fnSmall()",5);
+			oMenu.style.display = "none";
+			isShow = 0;
+		}
+	}
+</script>
+{/if}

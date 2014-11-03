@@ -1,0 +1,129 @@
+{include file="require_header.html" header=yes waterfall=yes gallery=yes}
+<div id="container">
+	{foreach from=$data item=d}
+	<div class="col">
+		<div class="image" onMouseOver="show({$d.blog_id})" onMouseOut="none({$d.blog_id})">
+			<div class="highslide-gallery">
+				<a class="highslide" href="{$url}/{$d.img_url}" onclick="return hs.expand(this)"><img src="{$url}/{$d.img_url}" class="feedimg" alt="{$d.title}"/></a>
+			</div>
+			<div class="user-interaction" id="user-interaction-{$d.blog_id}" style="display:none">
+				<dl class="user-interaction interaction-good">
+					<dt mark="{$d.blog_id}" uid="{$d.blog_id}" id="interaction-good-container-{$d.blog_id}">
+					<a onClick="sEval({$d.blog_id},1)" title="顶">顶</a>
+					</dt>
+					<dd id="{$d.blog_id}">{$d.good}</dd>
+				</dl>
+				<dl class="user-interaction interaction-bad">
+					<dt mark="{$d.blog_id}" uid="{$d.blog_id}" id="interaction-bad-container-{$d.blog_id}"> 
+					<a onClick="sEval({$d.blog_id},2)" title="踩">踩</a>                             
+					</dt>                             
+					<dd id="{$d.blog_id}">{$d.bad}</dd>
+				</dl>
+				{if islogin()}
+				<dl class="user-interaction interaction-collect">
+					<dt mark="{$d.blog_id}" uid="{$d.blog_id}" id="interaction-collect-container-{$d.blog_id}"> 
+					<a href="javascript:void(0)" onclick="collect('{$url}/index.php?c=main&a=collect&bid={$d.blog_id}')" title="收集">收集</a>                             
+					</dt>
+				</dl>
+				{/if}
+			</div>
+		</div>
+		
+		<div class="bottombar">
+			<div class="title">{$d.title} <a href={goUserBlog bid=$d.blog_id}>评论({$d.commentcount})</a></div>
+			
+			<div class="user_bar">
+				<div class="user_avatar">
+				<a href="{$url}/index.php?c=userblog&a=index&domain={$d.domain}"><img  src="{$url}/avatar/{$d.avatar}"/>
+				{$d.name}</a>&nbsp;&nbsp;{$d.ctime}
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	{/foreach}
+	
+</div>
+<!--<div class="page clear">
+	<div class="pages">
+		<div class="nav">{$pager}</div>
+    </div>
+</div>-->
+<div id="page_nav">
+    <a href="{spUrl c=main a=waterfall page=$page+1}">下一页</a>
+</div>
+<div id="ajax-loader" style="width: 120px; height: 20px; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; display: none; ">加载中···</div>
+{literal}
+<script type="text/javascript">
+function show(id){
+    document.getElementById('user-interaction-'+id).style.display='block';
+}
+function none(id){
+    document.getElementById('user-interaction-'+id).style.display='none';
+}
+$(document).ready(function(){
+	/*$('#container').masonry({
+	itemSelector : '.col',
+	columnWidth : 245
+	});*/
+	// #thumbs 为包含所有图片的容器
+    var $container = $('#container');
+	$container.masonry({
+	itemSelector : '.col',
+	columnWidth : 245
+	});
+    // 使用 imagesLoaded() 修复该插件在 chrome 下的问题
+    /*$container.imagesLoaded(function(){
+      $container.masonry({
+        // 每一列数据的宽度，若所有栏目块的宽度相同，可以不填这段
+        columnWidth: 245,
+        // .imgbox 为各个图片的容器
+        itemSelector : '.col',
+		isAnimated: !Modernizr.csstransitions
+      });
+    });*/
+	nextHref = $("#page_nav a").attr("href");
+	// 给浏览器窗口绑定 scroll 事件
+	$(window).bind("scroll",function(){
+		// 判断窗口的滚动条是否接近页面底部
+		if( $(document).scrollTop() + $(window).height() > $(document).height() - 10 ) {
+			// 判断下一页链接是否为空
+			if( nextHref != undefined ) {
+				// 显示正在加载模块
+				$("#ajax-loader").show("slow");
+				// Ajax 翻页
+				$.ajax( {
+					url: $("#page_nav a").attr("href"),
+					type: "POST",
+					success: function(data) {
+						result = $(data).find("#container .col");
+						nextHref = $(data).find("#page_nav a").attr("href");
+						$("#page_nav a").attr("href", nextHref);
+						$("#container").append(result);
+						// 把新的内容设置为透明
+						$newElems = result.css({ opacity: 0 });
+						//$newElems = result;
+						$newElems.imagesLoaded(function(){
+							$container.masonry( 'appended', $newElems, true);
+							// 渐显新的内容
+							$newElems.animate({ opacity: 1 });
+							// 隐藏正在加载模块
+							$("#ajax-loader").hide("slow");
+						});
+	 
+					}
+				});
+			} else {
+				$("#ajax-loader span").text("木有了噢，最后一页了！");
+				$("#ajax-loader").show("fast");
+				setTimeout("$('#ajax-loader').hide()",1000);
+				setTimeout("$('#ajax-loader').remove()",1100);
+			}
+		}
+	});
+});
+
+</script>
+{/literal}
+{include file="require_footer.html"}

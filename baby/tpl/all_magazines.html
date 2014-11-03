@@ -1,0 +1,38 @@
+﻿{include file="require_header.html" layout=yes}
+
+<div class="channle">
+<div class="htag">
+  <div class="htag">
+    <table width="900" cellpadding="0" class="hottab" cellspace="0">
+      <thead>
+        <tr >
+          <th width="167" class="tag-hd">热门杂志</th>
+          <th width="322" class="hot-hd">杂志热度</th>
+          <th width="171" class="editor-hd">最新更新时间</th>
+		  <th width="171" class="editor-hd">收集数量</th>
+          <th width="228" class="editor-hd">贡献者博客</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+      
+      {foreach from=$HotBoards item=d key="j"} 
+      <tr class="tag-row {cycle values="odd,add"}">
+        <td class="tag"><a href="{spUrl c=main a=magazine boid=$HotBoards[$j]['boid']}" target="_blank">{$d.boardname}</a></td>
+        <td class="hot"><div class="state" style="width:{checkHit max=$hotMax val=$d.num}%">{$HotBoards[$j]['coins']}</div> </td>
+        <td class="editor">{dtktime time=$d.rtime}&nbsp;</td>
+		<td class="editor">{$d.collect_count}&nbsp;</td>
+        <td class="editor">
+        <a href="{$url}/{$d.user.domain}" title="{$d.user.username}" target="_blank"> <img src="{avatar uid=$d.user.uid size=small}" alt="{$d.user.username}" align="absmiddle"/>{$d.user.username}</a>
+        </td>
+       
+      </tr>
+      {/foreach}
+      </tbody>
+      
+    </table>
+  </div>
+</div>
+</div>
+
+{include file="require_footer.html"}

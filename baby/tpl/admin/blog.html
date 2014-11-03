@@ -1,0 +1,158 @@
+{include file='admin/header.html'}
+<div id="content">
+	{if $tab==0}
+	<h2>博客列表 | <a href="{spUrl c=admin a=blog MagazineList=yes}">杂志列表</a> | <a href="{spUrl c=admin a=blog SystemTags=yes}">系统标签</a> | <a href="{spUrl c=admin a=blog UserTags=yes}">用户标签</a></h2>
+		<h2>搜索</h2>
+		<form id="form1" name="form1" method="post" action="">
+		<table width="100%" class="table">
+
+		<tr>
+		<td width="60">标题</td>
+		<td valign="middle"><input type="text" name="title" value="{$get.title}"  />
+		或</td>
+		</tr>
+		<tr>
+		<td>用户ID</td>
+		<td valign="middle"><input name="niname" type="text" value="{$get.niname}"/></td>
+		</tr>
+		</table>
+
+		<input name="submit" type="submit" value="搜索" />
+		</form>
+
+		<h2>博客列表</h2>
+		<div class="nav">{$pager}</div>
+		<table width="100%" class="table2">
+		<tr>
+		<th width="30" align="center" valign="middle">ID</th>
+		<th width="30" align="center" valign="middle">置顶</th>
+		<th width="40" align="center" valign="middle">类型</th>
+		<th width="120" align="center" valign="middle">标签</th>
+		<th width="40" align="center" valign="middle">草稿</th>
+		<th width="40" align="center" valign="middle">点击</th>
+		<th width="40" align="center" valign="middle">动态</th>
+		<th width="40" align="center"  valign="middle">评论</th>
+		<th width="40" align="center" valign="middle">不评</th>
+		<th align="center"  valign="middle">标题</th>
+		<th width="80" align="center"  valign="middle">作者</th>
+		<th width="60" align="center" valign="middle">time</th>
+		</tr>
+		{foreach from=$blog item=d}
+		<tr>
+		<td>{$d.bid}</td>
+		<td valign="middle">{if $d.top == 1}顶{else}非{/if}</td>
+		<td valign="middle">{if $d.type == 1}文字{elseif $d.type ==2}音乐{elseif $d.type ==3}照片{elseif $d.type == 4}视频{/if}</td>
+		<td valign="middle">{tag tag=$d.tag c=tag}</td>
+		<td valign="middle">{if $d.open == 1}否{else}是{/if}</td>
+		<td valign="middle">{$d.hitcount}</td>
+		<td valign="middle">{$d.feedcount}</td>
+		<td valign="middle">{$d.replaycount}</td>
+		<td valign="middle">{if $d.noreply == 1}是{else}否{/if}</td>
+		<td valign="middle"><a href="{goUserBlog bid=$d.bid}" target="_blank">{if $d.title == ''}没有标题{else}{$d.title}{/if}</a></td>
+		<td valign="middle"><a href="{spUrl c=blog a=gouser uid=$d.user.uid}" target="_blank">{$d.user.username}</a></td>
+		<td valign="middle">{dtktime time=$d.time}</td>
+		</tr>
+		{/foreach}
+		</table>
+		<div class="nav">{$pager}</div>
+	{else if $tab==1}
+	<h2><a href="{spUrl c=admin a=blog BlogList=yes}">博客列表</a> | 杂志列表 | <a href="{spUrl c=admin a=blog SystemTags=yes}">系统标签</a> | <a href="{spUrl c=admin a=blog UserTags=yes}">用户标签</a></h2>
+		<h2>杂志列表</h2>
+		<div class="nav">{$pager}</div>
+		<table width="100%" class="table2">
+			<tr>
+				<th width="40" align="center" valign="middle">ID</th>
+				<th width="80" align="center" valign="middle">收集总数</th>
+				<th width="80" align="center" valign="middle">状态数量</th>
+				<th width="80" align="center" valign="middle">文字数量</th>
+				<th width="80" align="center" valign="middle">图片数量</th>
+				<th width="80" align="center" valign="middle">音频数量</th>
+				<th width="80" align="center"  valign="middle">视频数量</th>
+				<th align="center"  valign="middle">杂志名称</th>
+				<th width="80" align="center"  valign="middle">作者</th>
+				<th width="60" align="center" valign="middle">time</th>
+				<th width="60" align="center" valign="middle">编辑</th>
+				<th width="60" align="center" valign="middle">删除</th>
+			</tr>
+			{foreach from=$Magazines item=d}
+				<tr id="mag_{$d.boid}">
+					<td>{$d.boid}</td>
+					<td valign="middle" align="center">{$d.collect_count}</td>
+					<td valign="middle" align="center">{$d.collect_count}</td>
+					<td valign="middle" align="center">{$d.collect_count}</td>
+					<td valign="middle" align="center">{$d.collect_count}</td>
+					<td valign="middle" align="center">{$d.collect_count}</td>
+					<td valign="middle" align="center">{$d.collect_count}</td>
+					<td valign="middle" align="center"><a href="{spUrl c=main a=magazine boid=$d.boid}" target="_blank">{if $d.boardname == ''}没有标题{else}{$d.boardname}{/if}</a></td>
+					<td valign="middle" align="center">{$d.uid}</td>
+					<td valign="middle" align="center">{dtktime time=$d.time}</td>
+					<td valign="middle" align="center"><a href="javascript:void(0)" onclick="edit_magazine('{$d.boid}')">编辑</a></td>
+					<td valign="middle" align="center"><a href="javascript:void(0)" onclick="del_magazine('{$d.boid}')">删除</a></td>
+				</tr>
+			{/foreach}
+		</table>
+		<div class="nav">{$pager}</div>
+	{else if $tab==2}
+	<h2><a href="{spUrl c=admin a=blog BlogList=yes}">博客列表</a> | <a href="{spUrl c=admin a=blog MagazineList=yes}">杂志列表</a> | 系统标签 | <a href="{spUrl c=admin a=blog UserTags=yes}">用户标签</a></h2>
+		<form action="" method="post">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+				<tr>
+					<th width="9%" scope="col">排序</th>
+					<th width="91%" scope="col"><input type="text" name="sort"/></th>
+				</tr>
+				<tr>
+					<th scope="col">标签名称</th>
+					<th scope="col"><input type="text" name="cname" /></th>
+				</tr>
+			</table>
+			<input type="submit" name="sysadd"  value="添加系统标签" />
+		</form>
+		<div class="nav">{$systagpager}</div>
+		<form action="" method="post">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table2">
+				<tr>
+					<th width="50" align="center" valign="middle" scope="col">排序</th>
+					<th align="center" valign="middle"  scope="col">标签</th>
+					<th width="100" align="center" valign="middle" scope="col">操作</th>
+				</tr>
+			{foreach from=$systag item=d}
+				<tr id="systag_{$d.cid}">
+					<td><input name="cate[{$d.cid}][sort]" type="text"  value="{$d.sort}" /></td>
+					<td><input name="cate[{$d.cid}][catename]"  type="text"  value="{$d.catename}" /></td>
+					<td align="right"><a href="javascript:void(0)" onclick="delsystag({$d.cid})">删除</a></td>
+				</tr>
+			{/foreach}
+			</table>
+		<input name="syscate" type="submit" value="保存" />
+		</form>
+		<div class="nav">{$systagpager}</div>
+	{else if $tab==3}
+	<h2><a href="{spUrl c=admin a=blog BlogList=yes}">博客列表</a> | <a href="{spUrl c=admin a=blog MagazineList=yes}">杂志列表</a> | <a href="{spUrl c=admin a=blog SystemTags=yes}">系统标签</a> | 用户标签</h2>
+		<div class="nav">{$usrtagpage}</div>
+		<form action="" method="post">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table2">
+				<tr>
+					<th align="center" valign="middle" scope="col">标签</th>
+					<th width="150" align="center" valign="middle"  scope="col">添加人</th>
+					<th width="50" align="center" valign="middle"  scope="col">活跃度</th>
+					<th width="100" align="center" valign="middle"  scope="col">添加时间</th>
+					<th width="100" align="center" valign="middle"  scope="col">最后调用时间</th>
+					<th width="47" align="center" valign="middle" scope="col">操作</th>
+				</tr>
+				{foreach from=$usrtag item=d}
+					<tr id="usertag_{$d.tid}">
+						<td><input name="tag[{$d.tid}]" type="text"  value="{$d.title}" /></td>
+						<td>{$d.user.username}</td>
+						<td>{$d.num}</td>
+						<td>{dtktime time=$d.time}</td>
+						<td>{dtktime time=$d.updates}</td>
+						<td><a href="javascript:void(0)" onclick="delusertag({$d.tid})">删除</a></td>
+					</tr>
+				{/foreach}
+			</table>
+			<input name="usercate" type="submit" value="保存" />
+		</form>
+		<div class="nav">{$usrtagpage}</div>
+	{/if}
+</div>
+{include file='admin/footer.html'}

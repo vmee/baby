@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="zh-cn">
+<head>
+    <title>{if $titlepre}{$titlepre} -{/if} {$title} {$dtk.site_title} - {$dtk.site_titlepre}</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="{$dtk.author}" />
+    <meta name="description" content="{$dtk.site_desc}" />
+    <meta name="keywords" content="{if $titlepre}{$titlepre},{/if}{$dtk.site_keyword}" />
+    <link rel="shortcut icon" href="{$url}/tpl/image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="screen" href="{$url}/tpl/image/css/collect.css"/>
+	{include file="require_js.html"}
+	
+</head>
+
+<body>
+	<div id="title">收集到我的杂志</div>
+	<div id="main">
+		<!--<img src="{avatar uid=$theuid size=middle}"/></a>-->
+		<div id="left" >
+			{collect item=$d.body type=$d.type limit=all bid=$d.bid showmedia=1}
+		</div>
+		<!--bid = {$bid}-->
+		<form id="collect_form" action="{$url}/index.php?c=main&a=addcollect" method="post" >	
+			<div id="right">
+				<div >
+					<select class="select" type="hidden" name="boid">
+						{foreach from=$myBoards item=e}
+							<option  value="{$e.boid}">{$e.boardname}</option>
+						{/foreach}
+					</select>
+				</div>
+				<div >
+					<textarea class="input" id="aInput" name="title" value="{$d.title}" onChange="checkValue(this.value)">{$d.title}</textarea> 
+					<!--隐藏域-->
+					<input type="hidden" name="bid" value="{$d.bid}"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

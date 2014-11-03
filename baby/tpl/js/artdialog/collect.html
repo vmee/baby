@@ -1,0 +1,36 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>test</title>
+
+</head>
+
+</body>
+
+
+<p>
+<input style="width:15em; padding:4px;" id="aInput" value="我事小A"> 
+<select>
+<option value="- please select your options -"> - please select your options -</option>
+<option value="1" class="s">option1</option>
+<option value="2" class="s">option2</option>
+<option value="3" class="s">option3</option>
+<option value="4" class="s">option4</option>
+<option value="5" class="s">option5</option>
+</select>
+</p>
+<script>
+if (art.dialog.data('test')) {
+
+	document.getElementById('aInput').value = art.dialog.data('test');// 获取由主页面传递过来的数据
+
+};
+
+</script>
+</body>
+</html>

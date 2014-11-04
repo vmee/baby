@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-03 17:24:21
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-04 12:00:48
          compiled from "/home/kingkong/Projects/php/baby/tpl/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:1286301825545749c5aa8df7-85493657%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:11537929654584f70bcc768-43739232%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '78d9ecedc8e4b45898aa8945605e0da7d44438ef' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/index.html',
-      1 => 1336892127,
+      1 => 1415073647,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1286301825545749c5aa8df7-85493657',
+  'nocache_hash' => '11537929654584f70bcc768-43739232',
   'function' => 
   array (
   ),
@@ -31,10 +31,6 @@ $_template->assign('index','yes');$_template->assign('gallery','yes'); echo $_te
 			（还米有账号？<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'reg'),$_smarty_tpl);?>
 " title="注册">注册</a>）
 		</div>
-	<?php }?>
-	<?php if ($_smarty_tpl->getVariable('user')->value['flow']<=15&&islogin()){?>
-	<div class="boxtip">您关注用户过少,<?php echo $_smarty_tpl->getVariable('dtk')->value['site_title'];?>
-将推送您更多内容 :)</div>
 	<?php }?>
 	<?php if ($_smarty_tpl->getVariable('noticeCount')->value){?>
 	<div id="message" style="display:none">

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-03 17:55:17
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-04 11:48:09
          compiled from "/home/kingkong/Projects/php/baby/tpl/login.html" */ ?>
-<?php /*%%SmartyHeaderCode:27849448954575105e1d3e3-54284395%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:88839758254584c79e60486-31007335%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e88298e9310bf79360974e3f54827988978122e4' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/login.html',
-      1 => 1415008513,
+      1 => 1415072553,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '27849448954575105e1d3e3-54284395',
+  'nocache_hash' => '88839758254584c79e60486-31007335',
   'function' => 
   array (
   ),
@@ -23,7 +23,6 @@ $_smarty_tpl->decodeProperties(array (
 <meta charset="utf-8"/>
 <title><?php echo $_smarty_tpl->getVariable('dtk')->value['site_title'];?>
  - <?php echo $_smarty_tpl->getVariable('dtk')->value['site_titlepre'];?>
- - Powered by <?php echo $_smarty_tpl->getVariable('dtk')->value['soft'];?>
 </title>
 <meta name="author" content="<?php echo $_smarty_tpl->getVariable('dtk')->value['author'];?>
 " />

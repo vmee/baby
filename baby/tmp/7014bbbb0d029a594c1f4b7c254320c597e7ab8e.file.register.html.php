@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-03 17:55:26
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-04 11:42:54
          compiled from "/home/kingkong/Projects/php/baby/tpl/register.html" */ ?>
-<?php /*%%SmartyHeaderCode:10470682835457510e51ef90-95693799%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:4821868954584b3ee8be40-92645961%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7014bbbb0d029a594c1f4b7c254320c597e7ab8e' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/register.html',
-      1 => 1336919834,
+      1 => 1415072538,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10470682835457510e51ef90-95693799',
+  'nocache_hash' => '4821868954584b3ee8be40-92645961',
   'function' => 
   array (
   ),
@@ -23,8 +23,7 @@ $_smarty_tpl->decodeProperties(array (
 <meta charset="utf-8"/>
 <title><?php echo $_smarty_tpl->getVariable('dtk')->value['site_title'];?>
  - <?php echo $_smarty_tpl->getVariable('dtk')->value['site_titlepre'];?>
- - Power by <?php echo $_smarty_tpl->getVariable('dtk')->value['soft'];?>
-</title>
+ </title>
 <meta name="author" content="<?php echo $_smarty_tpl->getVariable('dtk')->value['author'];?>
 " />
 <meta name="description" content="<?php echo $_smarty_tpl->getVariable('dtk')->value['site_desc'];?>
@@ -113,7 +112,7 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 	<div id="copyright">
 		<div class="nav clearfix">
 			<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'site','a'=>'about'),$_smarty_tpl);?>
-">关于<?php echo $_smarty_tpl->getVariable('dtk')->value['soft'];?>
+">关于<?php echo $_smarty_tpl->getVariable('dtk')->value['site_title'];?>
 </a></li>
 			<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'site','a'=>'call'),$_smarty_tpl);?>
 ">联系我们</a></li>
@@ -123,12 +122,10 @@ $_template->assign('login','yes'); echo $_template->getRenderedTemplate();?><?ph
 ">服务条款</a></li>
 			<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'site','a'=>'privacy'),$_smarty_tpl);?>
 ">隐私政策</a></li>
-			<li><a href="#">程序下载</a></li>
 		 </div>
 		<div class="copy">
-		 <a href="http://www.ditieker.com" target="_blank">Powered by <?php echo $_smarty_tpl->getVariable('dtk')->value['soft'];?>
- <b><?php echo $_smarty_tpl->getVariable('dtk')->value['version'];?>
-</b> </a>&nbsp;2011-2012 <?php echo $_smarty_tpl->getVariable('dtk')->value['site_icp'];?>
+		 <a >Powered by <?php echo $_smarty_tpl->getVariable('dtk')->value['site_title'];?>
+  </a>&nbsp;2014 <?php echo $_smarty_tpl->getVariable('dtk')->value['site_icp'];?>
  <?php echo $_smarty_tpl->getVariable('dtk')->value['site_count'];?>
 </small></div>
 	</div>

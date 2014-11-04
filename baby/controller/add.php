@@ -191,7 +191,7 @@ class add extends top
 		{
 			$upfile = spClass("uploadFile");
 			$upfile->set_filesize($this->dtk['addimg_upsize']); //改为后台配置
-			$upfile->set_filetypes('jpg|png|jpge|bmp|gif');
+			$upfile->set_filetypes('jpg|png|jpeg|bmp|gif');
 			$upfile->set_diydir($_SESSION['tempid']);
 			$files = $upfile->fileupload();	
 			$farray = json_decode($files);

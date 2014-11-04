@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-03 17:24:21
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-04 11:48:20
          compiled from "/home/kingkong/Projects/php/baby/tpl/require_footer.html" */ ?>
-<?php /*%%SmartyHeaderCode:1541686590545749c5de92f5-54367298%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:69881704854584c84927b33-46442294%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'cfaed4b8544bddb535adf116304b68bdb142ab07' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/require_footer.html',
-      1 => 1336662481,
+      1 => 1415072388,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1541686590545749c5de92f5-54367298',
+  'nocache_hash' => '69881704854584c84927b33-46442294',
   'function' => 
   array (
   ),
@@ -33,7 +33,7 @@ $_smarty_tpl->decodeProperties(array (
 ">条 款</a> <span>|</span>
       <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'site','a'=>'privacy'),$_smarty_tpl);?>
 ">隐 私</a> <span>|</span>
-      <a href="http://www.ditieker.com" target="_blank">Powered by 地铁客</b> </a>&nbsp;2011-2012 <?php echo $_smarty_tpl->getVariable('dtk')->value['site_icp'];?>
+      2014 <?php echo $_smarty_tpl->getVariable('dtk')->value['site_icp'];?>
  <?php echo $_smarty_tpl->getVariable('dtk')->value['site_count'];?>
 </div>
     <div class="clear"></div>

@@ -8,9 +8,6 @@
 			（还米有账号？<a href="{spUrl c=main a=reg}" title="注册">注册</a>）
 		</div>
 	{/if}
-	{if $user.flow <=15 && islogin()}
-	<div class="boxtip">您关注用户过少,{$dtk.site_title}将推送您更多内容 :)</div>
-	{/if}
 	{if $noticeCount}
 	<div id="message" style="display:none">
 		{foreach from=$notice item=d}

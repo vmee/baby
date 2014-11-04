@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-03 17:24:53
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-04 13:13:32
          compiled from "/home/kingkong/Projects/php/baby/tpl/admin/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:2105017093545749e53ad634-30618089%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:20667778805458607c2b7d74-27346353%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0028c500eb4e7a254ddcfbdc14cb85d0d2a1ea93' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/admin/index.html',
-      1 => 1336661972,
+      1 => 1415078010,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2105017093545749e53ad634-30618089',
+  'nocache_hash' => '20667778805458607c2b7d74-27346353',
   'function' => 
   array (
   ),
@@ -20,6 +20,7 @@ $_smarty_tpl->decodeProperties(array (
 <?php $_template = new Smarty_Internal_Template('admin/header.html', $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
   <div id="content">
+      <!--
     <h2>软件信息</h2>
     <table width="100%" class="table">
       <tr>
@@ -31,7 +32,7 @@ $_smarty_tpl->decodeProperties(array (
         <td>程序版本：</td>
         <td><?php echo $_smarty_tpl->getVariable('hzmsoft')->value['version'];?>
  <span id="encodeversion"><?php echo $_smarty_tpl->getVariable('hzmsoftencode')->value;?>
-</span> | <span id="checkVersion"><a href="javascript:queryVersion()">[检查更新]</a></span> </td>
+</span> | <span id="checkVersion"></span> </td>
       </tr>
       <tr>
         <td>联系方式：</td>
@@ -50,6 +51,7 @@ $_smarty_tpl->decodeProperties(array (
 </a></td>
       </tr>
     </table>
+    -->
     <h2>服务器信息</h2>
     <table width="100%" class="table">
      <tr>

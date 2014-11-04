@@ -3,16 +3,18 @@
 		<div class="pop">
 			<ul class="pop2">
 				{if $dtk.addtext_switch ==1} <li><a href="{spUrl c=add a=text}" class="text">文字</a></li>{/if}
-				{if $dtk.addmusic_switch ==1} <li><a href="{spUrl c=add a=music}" class="music">音乐</a></li>{/if}
-				{if $dtk.addimg_switch ==1} <li><a href="{spUrl c=add a=image}" class="photo">图片</a></li>{/if}
-				{if $dtk.addvideo_switch ==1}<li><a  href="{spUrl c=add a=video}" class="video">视频</a></li>{/if}
+                {if $dtk.addimg_switch ==1} <li><a href="{spUrl c=add a=image}" class="photo">照片</a></li>{/if}
+                {if $dtk.addvideo_switch ==1}<li><a  href="{spUrl c=add a=video}" class="video">视频</a></li>{/if}
+                <!--{if $dtk.addmusic_switch ==1} <li><a href="{spUrl c=add a=music}" class="music">音乐</a></li>{/if}-->
 				<!--{if $dtk.addlink_switch ==1}<li><a  href="{spUrl c=add a=link}" class="link">链接</a></li>{/if}-->
-				<div id="state_bar">
+				<!--
+                <div id="state_bar">
 				<form action="{spUrl c=add a=post_state}" id="form1" method="post">
 					<input type="hidden" value="6" name="blog-types">
 					<textarea class="state" name="textarea"></textarea><input class="subBtn" type="submit" value="&nbsp;">
 				</form>
 				</div>
+				-->
 			</ul>
 		</div>
 	  

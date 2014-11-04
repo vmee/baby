@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-03 17:24:21
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-04 14:48:28
          compiled from "/home/kingkong/Projects/php/baby/tpl/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:638925629545749c5b2db60-16367667%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:50116171545876bc3aea95-65965538%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '68aa7f7fa848f4a544e68169a32b32bbe3eb6957' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/require_header.html',
-      1 => 1336899509,
+      1 => 1415083056,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '638925629545749c5b2db60-16367667',
+  'nocache_hash' => '50116171545876bc3aea95-65965538',
   'function' => 
   array (
   ),
@@ -39,17 +39,6 @@ $_smarty_tpl->decodeProperties(array (
 /tpl/image/css/html5.css" class="cssfx"/>
 
 <!--google analasyse-->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-28356195-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 
 <?php $_template = new Smarty_Internal_Template("require_js.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
@@ -102,7 +91,6 @@ if ($_smarty_tpl->_count($_from) > 0){
 	</div>
 	
 	<ul id="nav">
-		<li <?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='open'){?>class="current"<?php }?>><a class="nav_arrow" href="http://www.ditieker.com/open">开源论坛</a><?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='open'){?><div class="nav_arrow"></div><?php }?></li>
 		<li <?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='waterfall'){?>class="current"<?php }?>><a class="nav_arrow" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'waterfall'),$_smarty_tpl);?>
 ">瀑布墙</a><?php if ($_smarty_tpl->getVariable('CurrentModule')->value=='waterfall'){?><div class="nav_arrow"></div><?php }?></li>
 	<?php if (islogin()){?>

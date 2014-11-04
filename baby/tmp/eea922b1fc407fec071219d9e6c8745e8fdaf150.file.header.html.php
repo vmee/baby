@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-03 17:24:53
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-04 13:11:28
          compiled from "/home/kingkong/Projects/php/baby/tpl/admin/header.html" */ ?>
-<?php /*%%SmartyHeaderCode:1923983639545749e53eb647-26337170%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:69770997154586000540b66-33815664%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'eea922b1fc407fec071219d9e6c8745e8fdaf150' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/admin/header.html',
-      1 => 1336897439,
+      1 => 1415077884,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1923983639545749e53eb647-26337170',
+  'nocache_hash' => '69770997154586000540b66-33815664',
   'function' => 
   array (
   ),
@@ -21,7 +21,7 @@ $_smarty_tpl->decodeProperties(array (
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>地铁客开源轻博客系统 后台设置v1.7</title>
+<title>bb记后台 后台设置</title>
 <script>var urlpath = '<?php echo $_smarty_tpl->getVariable('url')->value;?>
 '</script> 
 <script type="text/javascript" src="<?php echo $_smarty_tpl->getVariable('url')->value;?>

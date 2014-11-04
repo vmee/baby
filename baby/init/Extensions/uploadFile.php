@@ -108,8 +108,8 @@ class uploadFile {
 			$localName=$info[2];
 		}
 		else{
-			$upfile=@$_FILES[$inputname];
-			if(!isset($upfile))$err='文件域的'.$inputName.'指定错误';
+			$upfile=isset($_FILES[$inputname])?$_FILES[$inputname]:null;
+			if(!$upfile)$err='文件域的'.$inputName.'指定错误';
 			elseif(!empty($upfile['error'])){
 
 				switch($upfile['error'])

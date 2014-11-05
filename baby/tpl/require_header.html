@@ -59,28 +59,28 @@
 
 	{if islogin()}
 		<ul id="nav-blog-list">
-		{if $MyBoards}
-			{foreach from=$MyBoards item=d key="j"}
+		{if $MyBabys}
+			{foreach from=$MyBabys item=d key="j"}
 				{if $d.top}					
-					<li id="nav-blog-{$d.boid}" {if $CurrentModule==$d.boid}class="current"{/if}><a class="nav_arrow" href="{spUrl c=magazine a=all}">{$d.boardname}</a>{if $CurrentModule==$d.boid}<div class="nav_arrow"></div>{/if}</li>
+					<li id="nav-blog-{$d.babyid}" {if $CurrentModule==$d.babyid}class="current"{/if}><a class="nav_arrow" href="{spUrl c=baby a=all}">{$d.name}</a>{if $CurrentModule==$d.babyid}<div class="nav_arrow"></div>{/if}</li>
 				{else}
 					{if $j>1}  
 					{break}
 					{/if}
-					<li id="nav-blog-{$d.boid}" {if $CurrentModule==$d.boid}class="current"{/if}><a class="nav_arrow" href="{spUrl c=main a=magazine boid=$MyBoards[$j]['boid']}">{$d.boardname}</a>{if $CurrentModule==$d.boid}<div class="nav_arrow"></div>{/if}</li>
+					<li id="nav-blog-{$d.babyid}" {if $CurrentModule==$d.babyid}class="current"{/if}><a class="nav_arrow" href="{spUrl c=baby a=index babyid=$MyBabys[$j]['babyid']}">{$d.name}</a>{if $CurrentModule==$d.babyid}<div class="nav_arrow"></div>{/if}</li>
 				{/if}
 			{/foreach}
-		{else}
-			<li id="nav-blog-ditieker.com"{if $CurrentModule==$d.boid}class="current"{/if}><a class="nav_arrow" href="javascript:void(0)" onclick="new_magazine()" title="再创建一个博客">还没有杂志？新建一个吧</a></li>
+
+		<!--	<li id="nav-blog-ditieker.com"{if $CurrentModule==$d.boid}class="current"{/if}><a class="nav_arrow" href="javascript:void(0)" onclick="new_magazine()" title="添加宝宝">还没有宝宝？加入宝宝</a></li>-->
 		{/if}
 		</ul>
-		{if $j>=0}
+		<!--if $j>=0
 		<div id="nav-blog-action">
 			<a id="nav-more-blog" class="nav-more-blog" style="" onclick="emotion()">更多</a>
-			<a id="nav-new-blog" class="nav-new-blog" href="javascript:void(0)" onclick="new_magazine()" title="再创建一个博客">再创建一本杂志</a>
+			<a id="nav-new-blog" class="nav-new-blog" href="javascript:void(0)" onclick="new_magazine()" title="再添加宝宝">再添加宝宝</a>
 			<span id="nav-more-blog-notice" class="header-pop-notice large-pop-notice blog-pop-notice" style="display:none;">new</span>
 		</div>
-		{/if}
+		/if -->
 	{/if}
 	<div id="J_HeaderMiscAction" class="misc-action">
 		<ul class="action-list">

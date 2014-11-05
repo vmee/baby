@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-04 13:14:56
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-05 13:02:15
          compiled from "/home/kingkong/Projects/php/baby/tpl/add_text.html" */ ?>
-<?php /*%%SmartyHeaderCode:8630441545860d0307ff2-77108654%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:7628418295459af5753b475-76444449%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '065c223d639ac9df23208011a5c60f7e54612229' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/add_text.html',
-      1 => 1326075345,
+      1 => 1415155949,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '8630441545860d0307ff2-77108654',
+  'nocache_hash' => '7628418295459af5753b475-76444449',
   'function' => 
   array (
   ),
@@ -40,13 +40,15 @@ $_template->assign('addcss','yes');$_template->assign('editor','yes');$_template
         
         <div>
           <h3 class="title">内容</h3>
+
+            <!--
           <span id="uploadpic"> 
           <span id="upload_bar"> 
            <div class="uploadBtn" id="upload_img"><span>上传图片</span><input type="file" size="1" name="filedata" ext="jpg,jpeg,gif,png" /></div>
             </span>
         	  <span id="uploading" style="display:none">正在上传...</span> 
               
-              </span>
+              </span>-->
               
           <textarea name="textarea" id="textarea" style="width:100%"><?php echo $_smarty_tpl->getVariable('body')->value['content'];?>
 </textarea>

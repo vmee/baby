@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-04 14:48:28
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-05 15:25:18
          compiled from "/home/kingkong/Projects/php/baby/tpl/require_header.html" */ ?>
-<?php /*%%SmartyHeaderCode:50116171545876bc3aea95-65965538%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15849416445459d0dea308a2-93462622%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '68aa7f7fa848f4a544e68169a32b32bbe3eb6957' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/require_header.html',
-      1 => 1415083056,
+      1 => 1415172316,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '50116171545876bc3aea95-65965538',
+  'nocache_hash' => '15849416445459d0dea308a2-93462622',
   'function' => 
   array (
   ),
@@ -106,40 +106,40 @@ if ($_smarty_tpl->_count($_from) > 0){
 
 	<?php if (islogin()){?>
 		<ul id="nav-blog-list">
-		<?php if ($_smarty_tpl->getVariable('MyBoards')->value){?>
+		<?php if ($_smarty_tpl->getVariable('MyBabys')->value){?>
 			<?php  $_smarty_tpl->tpl_vars['d'] = new Smarty_Variable;
  $_smarty_tpl->tpl_vars["j"] = new Smarty_Variable;
- $_from = $_smarty_tpl->getVariable('MyBoards')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_from = $_smarty_tpl->getVariable('MyBabys')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['d']->key => $_smarty_tpl->tpl_vars['d']->value){
  $_smarty_tpl->tpl_vars["j"]->value = $_smarty_tpl->tpl_vars['d']->key;
 ?>
 				<?php if ($_smarty_tpl->tpl_vars['d']->value['top']){?>					
-					<li id="nav-blog-<?php echo $_smarty_tpl->tpl_vars['d']->value['boid'];?>
-" <?php if ($_smarty_tpl->getVariable('CurrentModule')->value==$_smarty_tpl->tpl_vars['d']->value['boid']){?>class="current"<?php }?>><a class="nav_arrow" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'magazine','a'=>'all'),$_smarty_tpl);?>
-"><?php echo $_smarty_tpl->tpl_vars['d']->value['boardname'];?>
-</a><?php if ($_smarty_tpl->getVariable('CurrentModule')->value==$_smarty_tpl->tpl_vars['d']->value['boid']){?><div class="nav_arrow"></div><?php }?></li>
+					<li id="nav-blog-<?php echo $_smarty_tpl->tpl_vars['d']->value['babyid'];?>
+" <?php if ($_smarty_tpl->getVariable('CurrentModule')->value==$_smarty_tpl->tpl_vars['d']->value['babyid']){?>class="current"<?php }?>><a class="nav_arrow" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'baby','a'=>'all'),$_smarty_tpl);?>
+"><?php echo $_smarty_tpl->tpl_vars['d']->value['name'];?>
+</a><?php if ($_smarty_tpl->getVariable('CurrentModule')->value==$_smarty_tpl->tpl_vars['d']->value['babyid']){?><div class="nav_arrow"></div><?php }?></li>
 				<?php }else{ ?>
 					<?php if ($_smarty_tpl->getVariable('j')->value>1){?>  
 					<?php break 1?>
 					<?php }?>
-					<li id="nav-blog-<?php echo $_smarty_tpl->tpl_vars['d']->value['boid'];?>
-" <?php if ($_smarty_tpl->getVariable('CurrentModule')->value==$_smarty_tpl->tpl_vars['d']->value['boid']){?>class="current"<?php }?>><a class="nav_arrow" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'magazine','boid'=>$_smarty_tpl->getVariable('MyBoards')->value[$_smarty_tpl->getVariable('j')->value]['boid']),$_smarty_tpl);?>
-"><?php echo $_smarty_tpl->tpl_vars['d']->value['boardname'];?>
-</a><?php if ($_smarty_tpl->getVariable('CurrentModule')->value==$_smarty_tpl->tpl_vars['d']->value['boid']){?><div class="nav_arrow"></div><?php }?></li>
+					<li id="nav-blog-<?php echo $_smarty_tpl->tpl_vars['d']->value['babyid'];?>
+" <?php if ($_smarty_tpl->getVariable('CurrentModule')->value==$_smarty_tpl->tpl_vars['d']->value['babyid']){?>class="current"<?php }?>><a class="nav_arrow" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'baby','a'=>'index','babyid'=>$_smarty_tpl->getVariable('MyBabys')->value[$_smarty_tpl->getVariable('j')->value]['babyid']),$_smarty_tpl);?>
+"><?php echo $_smarty_tpl->tpl_vars['d']->value['name'];?>
+</a><?php if ($_smarty_tpl->getVariable('CurrentModule')->value==$_smarty_tpl->tpl_vars['d']->value['babyid']){?><div class="nav_arrow"></div><?php }?></li>
 				<?php }?>
 			<?php }} ?>
-		<?php }else{ ?>
-			<li id="nav-blog-ditieker.com"<?php if ($_smarty_tpl->getVariable('CurrentModule')->value==$_smarty_tpl->getVariable('d')->value['boid']){?>class="current"<?php }?>><a class="nav_arrow" href="javascript:void(0)" onclick="new_magazine()" title="再创建一个博客">还没有杂志？新建一个吧</a></li>
+
+		<!--	<li id="nav-blog-ditieker.com"<?php if ($_smarty_tpl->getVariable('CurrentModule')->value==$_smarty_tpl->getVariable('d')->value['boid']){?>class="current"<?php }?>><a class="nav_arrow" href="javascript:void(0)" onclick="new_magazine()" title="添加宝宝">还没有宝宝？加入宝宝</a></li>-->
 		<?php }?>
 		</ul>
-		<?php if ($_smarty_tpl->getVariable('j')->value>=0){?>
+		<!--if $j>=0
 		<div id="nav-blog-action">
 			<a id="nav-more-blog" class="nav-more-blog" style="" onclick="emotion()">更多</a>
-			<a id="nav-new-blog" class="nav-new-blog" href="javascript:void(0)" onclick="new_magazine()" title="再创建一个博客">再创建一本杂志</a>
+			<a id="nav-new-blog" class="nav-new-blog" href="javascript:void(0)" onclick="new_magazine()" title="再添加宝宝">再添加宝宝</a>
 			<span id="nav-more-blog-notice" class="header-pop-notice large-pop-notice blog-pop-notice" style="display:none;">new</span>
 		</div>
-		<?php }?>
+		/if -->
 	<?php }?>
 	<div id="J_HeaderMiscAction" class="misc-action">
 		<ul class="action-list">

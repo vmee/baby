@@ -284,7 +284,7 @@ class user extends top
 	function upavatar()
 	{
 		$upfile = spClass('uploadFile');
-		$upfile->set_filetypes('jpg|png|jpge|bmp|gif');
+		$upfile->set_filetypes('jpg|png|jpeg|bmp|gif');
 		$upfile->set_path(APP_PATH.'/avatar');
 		$upfile->set_imgresize(false);
 		$upfile->set_imgmask(false);

@@ -46,7 +46,7 @@ if (SP_DEBUG) {
 } else {
 	error_reporting(0);
 }
-@set_magic_quotes_runtime(0);
+//@set_magic_quotes_runtime(0);
 
 // 自动开启SESSION
 if($GLOBALS['G_SP']['auto_session'])@session_start();

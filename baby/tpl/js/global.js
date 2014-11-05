@@ -417,8 +417,9 @@ function new_magazine()
 			magname = iframe.document.getElementById('MagName');
         if (check(magname)){
 			form.submit();
-			art.dialog.tips('成功创建杂志！');
+			art.dialog.tips('宝宝成功入住！');
 			art.dialog.open.api.close();
+            document.location.href = document.location.href;
 		}
 		return false;
 		},

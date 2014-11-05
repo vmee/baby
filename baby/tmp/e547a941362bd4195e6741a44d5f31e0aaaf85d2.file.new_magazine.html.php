@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-03 17:37:19
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-05 11:08:42
          compiled from "/home/kingkong/Projects/php/baby/tpl/new_magazine.html" */ ?>
-<?php /*%%SmartyHeaderCode:61702334054574ccfe5d881-22443904%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1028699202545994ba6950d0-02530047%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e547a941362bd4195e6741a44d5f31e0aaaf85d2' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/new_magazine.html',
-      1 => 1336662481,
+      1 => 1415156916,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '61702334054574ccfe5d881-22443904',
+  'nocache_hash' => '1028699202545994ba6950d0-02530047',
   'function' => 
   array (
   ),
@@ -34,12 +34,12 @@ $_smarty_tpl->decodeProperties(array (
 	</head>
 
 <body>
-	<h2 id="title">创建一本新杂志</h2>
+	<h2 id="title">宝宝入住</h2>
 	<form id="create-tblog-form" action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'newmag_do'),$_smarty_tpl);?>
 " method="post">
 		<input type="hidden" name="formKey" >
 		<div id="input_container">
-			<div class="newmag_left" ><label for="blogName">杂志名字:</label></div>
+			<div class="newmag_left" ><label for="blogName">宝宝名字:</label></div>
 			
 			<input class="newmag_input" type="text" id="MagName" name="MagName" >
 			

@@ -1,0 +1,10 @@
+
+{if !$MyBabys}
+<div id="postblog">
+        <div class="img"><img src="{avatar uid=$smarty.session.uid size=middle}" alt="{$smarty.session.username}" class="face"/></div>
+		<div class="pop">
+            还没有宝宝？<a href="{spUrl c=baby a=add}" title="入驻宝宝">入驻宝宝</a>
+		</div>
+	  
+    </div>
+{/if}

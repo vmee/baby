@@ -704,11 +704,12 @@ function avatar($params)
 	$uid = $params['uid'];
 	$size = $params['size'];
 	$time = $params['time'];
+    $babyid = isset($params['babyid']) ? $params['babyid'] : false;
 	if($time ==1)
 	{
-		return APP_NAME.'avatar.php?uid='.$uid.'&size='.$size.'&random='.time();
+		return APP_NAME.'avatar.php?uid='.$uid.'&size='.$size.($babyid!==false ? '&babyid='.$babyid : '').'&random='.time();
 	}else{
-		return APP_NAME.'avatar.php?uid='.$uid.'&size='.$size;
+		return APP_NAME.'avatar.php?uid='.$uid.'&size='.$size.($babyid!==false ? '&babyid='.$babyid : '');
 	}
 	
 }

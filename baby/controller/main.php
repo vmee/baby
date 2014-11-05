@@ -34,13 +34,15 @@ class main extends top
 			$this->hotMax = $tags['rs'][0]['num'];
 			$this->htag = $tags['rs'];
 			/*Hot Magazines*/
-			$this->HotBoards = spClass('db_board')->HotBoards(1,10);
+			//$this->HotBoards = spClass('db_board')->HotBoards(1,10);
 			/*Below are original*/
 			$this->favatag = spClass('db_mytag')->myFavaTag($_SESSION['uid'],5);
 			$this->CurrentModule = 'index';
 			if(islogin() && $_SESSION['username'] == '')  { header('Location:'.spUrl('user','setting'));  }
 			$this->memberinfo();
-			$this->MyBoards = spClass('db_board')->myBoards($_SESSION['uid']);
+			//$this->MyBoards = spClass('db_board')->myBoards($_SESSION['uid']);
+
+            $this->MyBabys = spClass('db_baby')->myBabys($_SESSION['uid']);
 			
 			$where = "`ispub` = 1";
 			$this->blogs = spClass('db_blog')->spLinker()->spPager($this->spArgs('page',1),5)->findAll($where,'time desc');

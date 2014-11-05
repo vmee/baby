@@ -1,0 +1,61 @@
+{include file="require_header.html" addcss=yes editor=yes titlepre="发布文字"}
+<div class="contentTop"></div>
+<div class="content">
+<form action="{spUrl c=baby a=post}" id="form1" method="post">
+  <div id="hearder_bg">
+
+    <div id="main">
+  
+      <h2 id="title">宝宝入驻</h2>
+      <div id="pb-post-area">
+        <div>
+          <h3 class="title"> 宝宝名字 </h3>
+          <input type="text" name="baby[name]" id="pb-text-title" class="input" tabindex="1" value="{$baby.name}">
+        </div>
+          <div>
+              <h3 class="title"> 出生时间 </h3>
+              <input type="text" name="baby[birth_time]" class="input" tabindex="1" value="{$baby.birth_time}">
+          </div>
+
+          <div>
+              <h3 class="title"> 出生地 </h3>
+              <input type="text" name="baby[birthplace]" class="input" tabindex="1" value="{$baby.birthplace}">
+          </div>
+
+      <div id="pb-action-holder"> 
+          <a id="submit" class="blue-button">提交</a>
+          <a id="cancel" class="gray-button">取消</a> 
+       <span style="display:none;" id="pb-submiting-tip">正在保存...</span>
+      </div>
+    </div>
+
+
+
+
+
+      <!--
+        <div class="aside-item pb-side-opt" id="top-post-holder">
+         <label> <input name="pb-sync-to-qqweibo" type="checkbox" id="pb-sync-to-qqweibo" value="1">转发腾讯微薄</label>
+      </div>
+      -->
+
+      <input type="hidden" name="id" value="{$baby.babyid}" />
+   
+      
+    </div>
+
+      <div id="aside">
+          <div class="aside-item" id="post-privacy-holder">
+              <h4>宝宝头像  <div class="uploadBtn" id="upload_photo"><span>上传头像</span><input type="file" size="1" name="filedata" ext="jpg,jpeg,gif,png" /></div></h4>
+              <hr class="separator">
+              <img name="" src="{avatar uid=$smarty.session.uid babyid=0 size=big time=1}" alt="" style="max-width:170px" />
+          </div>
+
+          <hr class="separator">
+      </div>
+    <div class="clear"></div>
+  </div>
+</form>
+</div>
+
+{include file="require_footer.html"}

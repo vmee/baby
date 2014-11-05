@@ -131,7 +131,7 @@ class uploadFile {
 				$localName=$upfile['name'];
 			}
 		}
-		
+
 		
 		if($err==''){
 			$fileInfo=pathinfo($localName);

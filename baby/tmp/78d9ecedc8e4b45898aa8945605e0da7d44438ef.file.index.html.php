@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.6, created on 2014-11-04 12:00:48
+<?php /* Smarty version Smarty-3.0.6, created on 2014-11-05 14:46:12
          compiled from "/home/kingkong/Projects/php/baby/tpl/index.html" */ ?>
-<?php /*%%SmartyHeaderCode:11537929654584f70bcc768-43739232%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:19824012385459c7b4a30217-26738694%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '78d9ecedc8e4b45898aa8945605e0da7d44438ef' => 
     array (
       0 => '/home/kingkong/Projects/php/baby/tpl/index.html',
-      1 => 1415073647,
+      1 => 1415169971,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '11537929654584f70bcc768-43739232',
+  'nocache_hash' => '19824012385459c7b4a30217-26738694',
   'function' => 
   array (
   ),
@@ -22,7 +22,7 @@ $_smarty_tpl->decodeProperties(array (
 $_template->assign('index','yes');$_template->assign('gallery','yes'); echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 <div id="article">
 	<?php if (islogin()){?>
-		<?php $_template = new Smarty_Internal_Template("require_post.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+		<?php $_template = new Smarty_Internal_Template("require_baby.html", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
  echo $_template->getRenderedTemplate();?><?php $_template->updateParentVariables(0);?><?php unset($_template);?>
 	<?php }else{ ?>
 		<div class="cartoon">亲！注册会员享受更多特权，发布、制作杂志、移动客户端一个</p>都不少！

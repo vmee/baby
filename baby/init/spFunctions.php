@@ -363,7 +363,7 @@ function spConfigReady( $preconfig, $useconfig = null){
 //	} 
 //function colorCloudCallback($matches) { 
 //	$text = $matches[1]; 
-//	$color = dechex(rand(0,16777215)); 
+//	$color = dechex(rand(0,16777215)); 间插件
 //	$pattern = '/style=(\'|\")(.*)(\'|\")/i'; 
 //	$text = preg_replace($pattern, "style=\"color:#{$color};$2;\"", $text); 
 //	return "<a $text>"; 
